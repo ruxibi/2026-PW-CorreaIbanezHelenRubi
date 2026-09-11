@@ -1,0 +1,61 @@
+*
+{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: aquamarine;
+    background-color: aliceblue;
+}
+
+header{
+    background-color: blue;
+    color: burlywood;
+    padding: 1rem;
+    text-align: center;
+}
+header a{
+    color: aquamarine;
+}
+
+main{
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+footer{
+    text-align: center;
+    padding: 1rem;
+    color: aliceblue;
+    font-size: 0.675rem;
+}
+/*Catalogo de talleres*/
+
+.catalogo{
+    display: grid; /*invetsigar grid*/
+    grid-template-columns: reat(3, 1fr);
+    gap: 1rem;
+}
+
+.tarjeta{
+    background-color: "#ffffff";
+    border: 1px solid #e5e5e5;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.tarjeta h2{
+    margin-top: 0;
+    font-size: 1.1rem;
+}
+
+.tarjeta a{
+    color: blueviolet;
+    text-decoration: none;
+}
+
+.tarjeta a:hover{ /*hover cuando pasas el mouse*/
+    text-decoration: underline;
+}
