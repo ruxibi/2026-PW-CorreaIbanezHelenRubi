@@ -66,6 +66,7 @@ footer{
     background-color: #b4d1bc;
     padding: 30px;
     border-radius: 15px;
+    width: 365px; 
 
 }
 
@@ -75,7 +76,7 @@ input:focus{
  
 input{
     width: 350px;
-    height: 64px;
+    height: 40px;
     border-radius: 6px;
 }
 
@@ -83,7 +84,7 @@ button{
     background-color: #1f4987;
     color: aliceblue;
     border-radius: 8px;
-    padding: 10;
+    padding: 10px;
 }
 
 button:hover{
@@ -92,7 +93,9 @@ button:hover{
 }
 
 input:invalid{
-    color:2px color red; 
+    border:2px solid red; 
 }
 
-
+input:valid{
+    border:2px solid green;
+}
