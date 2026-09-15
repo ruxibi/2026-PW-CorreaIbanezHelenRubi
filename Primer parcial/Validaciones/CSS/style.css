@@ -28,7 +28,7 @@ main{
 footer{
     text-align: center;
     padding: 1rem;
-    color: aliceblue;
+    color: #b4d1d1;
     font-size: 0.675rem;
 }
 /*Catalogo de talleres*/
@@ -40,7 +40,7 @@ footer{
 }
 
 .tarjeta{
-    background-color: "#ffffff";
+    background-color: #906da8;
     border: 1px solid #3d5a73
 ;
     border-radius: 0.5rem;
@@ -61,3 +61,16 @@ footer{
 .tarjeta a:hover{ /*hover cuando pasas el mouse*/
     text-decoration: underline;
 }
+
+.formulario-registros{
+    background-color: #b4d1bc;
+    padding: 30px;
+    border-radius: 15px;
+
+}
+
+input{
+    
+}
+
+
