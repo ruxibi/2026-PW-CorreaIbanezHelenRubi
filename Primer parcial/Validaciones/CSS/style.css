@@ -85,6 +85,7 @@ button{
     color: aliceblue;
     border-radius: 8px;
     padding: 10px;
+    padding-top: 50px;
 }
 
 button:hover{
@@ -93,9 +94,9 @@ button:hover{
 }
 
 input:invalid{
-    border:2px solid red; 
+    border:8px solid red; 
 }
 
 input:valid{
-    border:2px solid green;
+    border:8px solid green;
 }
