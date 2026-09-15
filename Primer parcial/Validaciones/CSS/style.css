@@ -5,18 +5,18 @@
 body{
     margin: 0;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: aquamarine;
-    background-color: aliceblue;
+    color: #091414;
+    background-color: #5f999c;
 }
 
 header{
-    background-color: blue;
-    color: burlywood;
+    background-color: #1f4987;
+    color: #cad9db;
     padding: 1rem;
     text-align: center;
 }
 header a{
-    color: aquamarine;
+    color: #384d40;
 }
 
 main{
@@ -41,7 +41,8 @@ footer{
 
 .tarjeta{
     background-color: "#ffffff";
-    border: 1px solid #e5e5e5;
+    border: 1px solid #3d5a73
+;
     border-radius: 0.5rem;
     padding: 1rem;
 }
@@ -52,7 +53,8 @@ footer{
 }
 
 .tarjeta a{
-    color: blueviolet;
+    color: #503d73
+;
     text-decoration: none;
 }
 
