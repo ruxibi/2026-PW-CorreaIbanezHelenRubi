@@ -69,8 +69,30 @@ footer{
 
 }
 
+input:focus{
+    background-color: antiquewhite;
+}
+ 
 input{
-    
+    width: 6px;
+    height: fit-content;
+    border-radius: 6px;
+}
+
+button{
+    background-color: #1f4987;
+    color: aliceblue;
+    border-radius: 8px;
+    padding: 10;
+}
+
+button:hover{
+    background-color: #b4d1bc;
+    color: #091414;
+}
+
+input:invalid{
+    color:2px color red; 
 }
 
 
