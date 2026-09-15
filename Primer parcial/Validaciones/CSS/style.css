@@ -74,8 +74,8 @@ input:focus{
 }
  
 input{
-    width: 6px;
-    height: fit-content;
+    width: 350px;
+    height: 64px;
     border-radius: 6px;
 }
 
