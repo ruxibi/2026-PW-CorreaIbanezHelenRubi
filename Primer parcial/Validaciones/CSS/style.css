@@ -70,8 +70,13 @@ footer{
 
 }
 
-input:focus{
-    background-color: antiquewhite;
+#name:focus{
+    background-color: rgb(151, 189, 90);
+    color: #19211c;
+}
+#boleta:focus{
+    background-color: rgb(186, 147, 95);
+    color: #363421;
 }
  
 input{
@@ -81,22 +86,28 @@ input{
 }
 
 button{
-    background-color: #1f4987;
-    color: aliceblue;
     border-radius: 8px;
     padding: 10px;
     margin-top: 20px;
 }
 
-button:hover{
+#reset:hover{
     background-color: #b4d1bc;
     color: #091414;
 }
 
-input:invalid{
-    border:8px solid red; 
+#subir:hover{
+    background-color: #1f4987;
+    color: aliceblue;
 }
 
-input:valid{
-    border:8px solid green;
+input:invalid{
+    border:3px solid red; 
 }
+
+.mensjaeoculto{
+    display:none;
+}
+
+
+
