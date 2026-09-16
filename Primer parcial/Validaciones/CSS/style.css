@@ -62,7 +62,7 @@ footer{
     text-decoration: underline;
 }
 
-.formulario-registros{
+.formulario-registro{
     background-color: #b4d1bc;
     padding: 30px;
     border-radius: 15px;
@@ -70,7 +70,7 @@ footer{
 
 }
 
-#name:focus{
+#nombre:focus{
     background-color: rgb(151, 189, 90);
     color: #19211c;
 }
@@ -91,17 +91,17 @@ button{
     margin-top: 20px;
 }
 
-#reset:hover{
+#resetear:hover{
     background-color: #b4d1bc;
     color: #091414;
 }
-
+/*Los # sirven con los id y . con los class*/
 #subir:hover{
     background-color: #1f4987;
     color: aliceblue;
 }
 
-input:invalid{
+input:focus:invalid{
     border:3px solid red; 
 }
 
