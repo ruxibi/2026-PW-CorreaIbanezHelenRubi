@@ -66,23 +66,25 @@ footer{
     background-color: #b4d1bc;
     padding: 30px;
     border-radius: 15px;
-    width: 365px; 
+    width: 425px;
+    box-sizing: border-box; 
 
 }
 
 #nombre:focus{
-    background-color: rgb(151, 189, 90);
+    background-color: rgb(108, 166, 214);
     color: #19211c;
 }
 #boleta:focus{
-    background-color: rgb(186, 147, 95);
+    background-color: rgb(95, 186, 165);
     color: #363421;
 }
  
 input{
-    width: 350px;
+    width: 100%;
     height: 40px;
     border-radius: 6px;
+    box-sizing: border-box;
 }
 
 button{
@@ -91,22 +93,26 @@ button{
     margin-top: 20px;
 }
 
-#resetear:hover{
+.resetear:hover{
     background-color: #b4d1bc;
     color: #091414;
 }
 /*Los # sirven con los id y . con los class*/
-#subir:hover{
+.subir:hover{
     background-color: #1f4987;
     color: aliceblue;
 }
 
 input:focus:invalid{
-    border:3px solid red; 
+    border:4px solid red; 
 }
 
 .mensjaeoculto{
     display:none;
+}
+
+.mensajeexito{
+    display: none;
 }
 
 
