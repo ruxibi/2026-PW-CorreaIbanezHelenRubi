@@ -40,6 +40,7 @@ function pintarTabla(){
     });
 
 }
+pintarTabla(); 
 
 const formArreglos = document.getElementById('form-arreglos');
 const resultadoArreglos = document.getElementById('resultado-arreglo');
