@@ -82,12 +82,14 @@ th {
     background-color: #800020;
     color: #FFF9F2;
     padding: 15px;
-    text-align: left;
+    text-align: center;
 }
 
 td {
     background-color: #FFF9F2;
     padding: 15px;
+    color: #800020;
+    text-align: center;
 }
 
 tbody tr:nth-child(even) td {
