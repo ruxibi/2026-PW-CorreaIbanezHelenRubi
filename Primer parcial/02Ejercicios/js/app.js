@@ -12,34 +12,23 @@ function pintarTabla(){
     //debe de obtener la tabla y rellenarla con los datos de talleres
     const tabla = document.getElementById('tabla-talleres');
     const tbody = tabla.querySelector('tbody');
+    tbody.innerHTML='';
 
     talleres.forEach((taller) => {
 
         const fila = document.createElement('tr');
+        fila.innerHTML=
+        `
+        <td>${taller.nombre}</td>
+        <td>${taller.instructor}</td>
+        <td>${taller.cupo}</td>
+        <td>${taller.inscritos}</td>`;
 
-        const celdaNombre = document.createElement('td');
-        celdaNombre.textContent = taller.nombre;
-
-        const celdaInstructor = document.createElement('td');
-        celdaInstructor.textContent = taller.instructor;
-
-        const celdaCupo = document.createElement('td');
-        celdaCupo.textContent = taller.cupo;
-
-        const celdaInscritos = document.createElement('td');
-        celdaInscritos.textContent = taller.inscritos;
-
-        fila.appendChild(celdaNombre);
-        fila.appendChild(celdaInstructor);
-        fila.appendChild(celdaCupo);
-        fila.appendChild(celdaInscritos);
-
-        tbody.appendChild(fila);
+        tbody.appendChild(fila); 
     }); 
 
 }
-     
-pintarTabla(); 
+
 
 const formArreglos = document.getElementById('form-arreglos');
 const resultadoArreglos = document.getElementById('resultado-arreglo');
@@ -55,8 +44,23 @@ formArreglos.addEventListener('submit', (evento) =>{
         case 'forEach':
             resultado = talleres.map((t) => `- ${t.nombre} (${t.inscritos}/${t.cupo})`).join('\n');
             break;
+
+        case 'map':
+            resultado = talleres.map((t) => t.nombre).join(';'); 
+            break; 
+        case 'filter':
+            resultado = talleres.filter((t) => t.inscritos >= t.cupo).map((t) => t.nombre).join('; '); 
+            break; 
+        case'find': 
+            const tallerMaria = talleres.find((t) => t.instructor === 'Ing. María López'); 
+
+            resultado = tallerMaria
+            ?`${tallerMaria.nombre} (${tallerMaria.inscritos}/${tallerMaria.cupo})`: 'No se encontró taller';
+            break;  
     }
 
 
     resultadoArreglos.textContent = resultado;
 });
+
+pintarTabla(); 
