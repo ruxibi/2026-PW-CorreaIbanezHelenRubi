@@ -266,3 +266,12 @@ footer {
     color: #800020;
     font-size: 14px;
 }
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #800020;
+    border-radius: 6px;
+    background-color: #FFF9F2;
+    color: #800020;
+}
