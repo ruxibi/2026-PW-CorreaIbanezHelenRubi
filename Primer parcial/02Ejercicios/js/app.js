@@ -10,6 +10,35 @@ const talleres = [
 
 function pintarTabla(){
     //debe de obtener la tabla y rellenarla con los datos de talleres
+    const tabla = document.getElementById('tabla-talleres');
+    const tbody = tabla.querySelector('tbody');
+
+    talleres.forEach((taller) => {
+
+        const fila = document.createElement('tr');
+
+        const celdaNombre = document.createElement('td');
+        celdaNombre.textContent = taller.nombre;
+
+        const celdaInstructor = document.createElement('td');
+        celdaInstructor.textContent = taller.instructor;
+
+        const celdaCupo = document.createElement('td');
+        celdaCupo.textContent = taller.cupo;
+
+        const celdaInscritos = document.createElement('td');
+        celdaInscritos.textContent = taller.inscritos;
+
+        
+        fila.appendChild(celdaNombre);
+        fila.appendChild(celdaInstructor);
+        fila.appendChild(celdaCupo);
+        fila.appendChild(celdaInscritos);
+
+        tbody.appendChild(fila);
+
+    });
+
 }
 
 const formArreglos = document.getElementById('form-arreglos');
