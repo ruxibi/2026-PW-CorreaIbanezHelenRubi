@@ -56,17 +56,23 @@
             <form id="form-objeto" class="formulario">
                 <div class="campo">
                     <label for="objeto-nombre">Nombre</label>
-                    <input type="text" name="objeto-instructor" id="objeto-instructor" value="Ing.María Lopez">
+                    <input type="text" name="objeto-nombre" id="objeto-nombre" value="Introducción a Python">
+                </div>
+
+                <div class="campo">
+                    <label for="objeto-instructor">Instructor</label>
+                    <input type="text" name="objeto-instructor" id="objeto-instructor" value="Ing. María López">
+
                 </div>
 
                 <div class="campo">
                     <label for="objeto-cupo">Cupo</label>
-                    <input type="text" name="objeto-cupo" id="objeto-cupo" value="25" min="0">
+                    <input type="number" name="objeto-cupo" id="objeto-cupo" value="25" min="0">
                 </div>
 
                 <div class="campo">
                     <label for="objeto-inscritos">Inscritos</label>
-                    <input type="text" name="objeto-inscritos" id="objeto-inscritos" value="25" min="0">
+                    <input type="number" name="objeto-inscritos" id="objeto-inscritos" value="25" min="0">
                 </div>
 
                 <div class="campo">
@@ -81,6 +87,8 @@
                 </div>
                 <button type="submit">Ejecutar opción</button>
             </form>
+
+            <output class="resultado" id="resultado-objeto"></output>
             
         </section>
     </main>
