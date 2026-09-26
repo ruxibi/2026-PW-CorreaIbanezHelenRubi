@@ -16,7 +16,7 @@ console.log(Object.keys(taller));
 console.log('Manejo de valores en un objeto')
 console.log(Object.values(taller)); 
 // TODO: Object.entries — recorre con for..of e imprime "campo: valor" de cada propiedad
-console-log('Manejo de propiedades de un objeto'); 
+console.log('Manejo de propiedades de un objeto'); 
 for(const [campo,valor] of Object.entries(taller)){
   console.log(`${campo}: ${valor}`); 
 }
@@ -31,4 +31,4 @@ console.log('tipo: ', typeof textoJson);
 console.log('Agora de JSON a Objeto')
 const objetoDeVuelta = JSON.parse(textoJson); 
 console.log('tipo: ', typeof objetoDeVuelta);
-console.log(objetoDeVuelta,nombre); 
+console.log(objetoDeVuelta.nombre); 
