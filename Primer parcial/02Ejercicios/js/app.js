@@ -70,13 +70,13 @@ const formObjeto = document.getElementById('form-objeto');
 const resultadoObjeto = document.getElementById('resultado-objeto'); 
 
 formObjeto.addEventListener('submit', (evento) => {
-    evento.presentDefault();
+    evento.preventDefault();
 
     //ObjectTalleres
     const taller = {
         nombre: document.getElementById('objeto-nombre').value,
         instructor: document.getElementById('objeto-instructor').value,
-        cupo : Number(document.getElementById('objeto-cupo')).value,
+        cupo : Number(document.getElementById('objeto-cupo').value),
         inscritos: Number(document.getElementById('objeto-inscritos').value)        
     }; 
 
@@ -88,12 +88,14 @@ formObjeto.addEventListener('submit', (evento) => {
             resultado = JSON.stringify(Object.keys(taller)); 
             break; 
         case 'values':
+            resultado = Object.values(taller).join('\n'); 
             break; 
         case 'entries':
-            resultado = Object.entries(taller).map(([CSSMathProduct,valor]) => `$(campo):${valor}`).join('\n')
+            resultado = Object.entries(taller).map(([campo,valor]) => `${campo}:${valor}`).join('\n');
             break; 
         case 'stringify':
-            break:
+            resultado = JSON.stringify(taller, null, 2); 
+            break;
         case 'roundtrip':
             const textoJson = JSON.stringify(taller, null, 2); 
             const objetoDeVuelta = JSON.parse(textoJson); 
@@ -102,7 +104,7 @@ formObjeto.addEventListener('submit', (evento) => {
                 '',
                 textoJson, 
                 '', 
-                `tipo: ${typeof objetoDeVuelta}`; 
+                `tipo: ${typeof objetoDeVuelta}`,
                 objetoDeVuelta.nombre
             ].join('\n')
             break; 
