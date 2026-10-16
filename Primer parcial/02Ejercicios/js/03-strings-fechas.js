@@ -11,7 +11,7 @@ console.log(`"${entrada.trim()}"`);
 
 // TODO: split — parte el resultado del trim en un arreglo `partes`, separado por espacio
 console.log('Ejemplo de split');
-const partes = entrada.trim().split(''); 
+const partes = entrada.trim().split(' '); 
 console.log(partes); 
 
 
@@ -34,7 +34,7 @@ console.log('05/09/2026'.replaceAll('/', '-'));
 console.log('Manejo de template'); 
 const nombre = 'María';
 const cupo = 25; 
-console.log(`$(nombre) se inscribio en un taller con cupo para ${cupo} personas`)
+console.log(`${nombre} se inscribio en un taller con cupo para ${cupo} personas`); 
 
 // TODO: Date — completa esta función para construir un objeto Date a partir
 // de un texto 'DD/MM/AAAA' (recuerda: los meses en Date empiezan en 0)
