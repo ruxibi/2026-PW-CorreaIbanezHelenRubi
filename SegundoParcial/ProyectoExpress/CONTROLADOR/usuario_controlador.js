@@ -14,13 +14,14 @@ function esDuplicado(error){
  async function listarUsuarios(req, res){
     try{
         const usuarios = await usuariosModel,listar(); 
-        res.json(usuarios); 
+        res.json(usuarios); git 
     }catch{
         res.status(500).json({error: error, message}); 
     }
  } 
 
 //deberan realizar los constroladores de asistencia y talleres cib sus funciones correspondientes
+
 
 async function obtenerUsuario(req, res) {
     try{
@@ -29,3 +30,6 @@ async function obtenerUsuario(req, res) {
     }
     
 }
+
+
+//FUNCION DE CREAR USUARIOS 
