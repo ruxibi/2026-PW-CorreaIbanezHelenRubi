@@ -37,12 +37,13 @@ function crearApp(config, pool){
             name : NOMBRE_COOKIE,
             //aqui tenemos que definir si es secreta, si es publica o como es su acceso
             secret: process.env.SESSION_SECRET || 'secreto-solo-para-demo',
+            store: almacen,////////
             resave: false,
             saveUninitialized: false,
             rolling : config.rolling,
             cookie:{
-                maxAge: config.maxAge || 1000 * 60 * 60 * 24,
-                httpOnly: config.httpOnly || true,
+                maxAge: config.maxAgeMs || 1000 * 60 * 60 * 24,
+                httpOnly: config.httpOnly ?? true,
                 sameSite: config.sameSite || 'lax',
                 secure: config.secure || false
             }
@@ -55,7 +56,7 @@ function crearApp(config, pool){
     //como estamos ocupando un middleware dentro de la app, necesitamos verificar el vencimiento de la sesión, express-session alarga por defecto el vencimiento guardadno en el servidor por cada petición aunque el rolling sea en false, si solo confiamos en esto alguien nos puede copiar la cookie y mantener vivia la sesión creando un defecto de seguridad
     function vencida(sesion){
         const desde = config.rolling ? sesion.ultimoUso : sesion.creada;
-        return Date.now() - desde > config.maxAge;
+        return Date.now() - desde > config.maxAgeMs;
     }
 
     //401 no estas autorizado
@@ -76,7 +77,7 @@ function crearApp(config, pool){
     function requiereRol(rol){
         return (req, res, next)=>{
             if(req.session.usuario.rol !== rol){
-                return res.status(403).json({error: `Eres ${res.session.usuario.usuario}, pero esta ruta es para ${rol}`});
+                return res.status(403).json({error: `403 . Eres ${req.session.usuario.usuario}, ruta solo admin`});
             }
             next();
         };
@@ -140,18 +141,30 @@ function crearApp(config, pool){
     });
 
     app.get('/api/sesion', requiereSesion, (req, res)=>{
+        if (!req.session || !req.session.usuario) {
+            return res.status(401).json({ error: '401 no has iniciado sesión' });
+        }
         const desde = config.rolling ? req.session.ultimoUso : req.session.creada;
         res.json({
             usuario : req.session.usuario,
-            sesion : idCorto(req.sessionID);
-            expiraEnSegundos : Math.max(0, Math.round((desde + config.maxAge - Date.now())/10000)),
+            sesion : idCorto(req.sessionID),
+            expiraEnSegundos : desde ? Math.max(0, Math.round((desde + config.maxAgeMs - Date.now())/1000)) : 0,
         });
     });
 
     app.get('/api/perfil', requiereSesion, (req, res)=>{
         req.session.visitas = (req.session.visitas || 0) + 1;
-        res.json({mensaje : `Hola ${req.session.usuario.nombre} rol: ${req.session.usuario.rol}, visitas : ${req.session.visitas}`});
+        res.status(200).json({
+            usuario:req.session.usuario,
+            visitas: req.session.visitas
+        });
     });
+
+    app.get('/api/admin/reporte', requiereSesion, requiereRol('admin'), (req, res) =>{
+        res.json({
+            reporte: 'Talleres: 3. Inscritos:57.Cupo libre: 18'
+        }); 
+    }); 
 
     //vamos a desarrollar una prueba uitadria para verificar con v o fl las pruebas ejecutadas
 
@@ -162,7 +175,7 @@ function crearApp(config, pool){
                 sesion : idCorto(id),
                 esLaTuya : id === req.sessionID,
                 usuario: s.usuario ? s.usuario.usuario : 'Sin incir sesion',
-                visitas: s.visitass || 0,
+                visitas: s.visitas || 0,
                 expira : s.cookie && s.cookie.expires,
             }));
             res.json({almacen : config.almacen, sesiones : lista});
